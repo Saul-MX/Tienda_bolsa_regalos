@@ -38,7 +38,7 @@ const base = import.meta.env.BASE_URL;
             <HomeIcon class="w-5 h-5 text-stone-400"/>
             Inicio
         </a>
-        <a href={`${base}productos`} class="flex items-center gap-3 rounded-xl text-base font-semibold text-stone-500 hover:text-neutral-800 hover:bg-amber-400/10 transition-colors sidebar-link" class:list={["", { active: currentPath === `${base}productos` }]} style="padding: 12px 16px;">
+        <a href={`${base}/productos`} class="flex items-center gap-3 rounded-xl text-base font-semibold text-stone-500 hover:text-neutral-800 hover:bg-amber-400/10 transition-colors sidebar-link" class:list={["", { active: currentPath === `${base}/productos` }]} style="padding: 12px 16px;">
             <ProductosIcon class="w-5 h-5 text-stone-400"/>
             Productos
         </a>
@@ -71,7 +71,7 @@ const base = import.meta.env.BASE_URL;
         <!-- Nav Desktop -->
         <nav class="hidden md:flex items-center gap-8 font-semibold text-stone-400">
             <a href={`${base}`} class="hover:text-neutral-800 transition-colors text-base text-stone-500" class:list={["", { active: currentPath === `${base}` }]}>Inicio</a>
-            <a href={`${base}productos`} class="hover:text-neutral-800 transition-colors text-base text-stone-500" class:list={["", { active: currentPath === `${base}productos` }]}>Productos</a>
+            <a href={`${base}/productos`} class="hover:text-neutral-800 transition-colors text-base text-stone-500" class:list={["", { active: currentPath === `${base}/productos` }]}>Productos</a>
         </nav>
     
         <!-- Carrito -->
