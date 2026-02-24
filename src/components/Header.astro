@@ -12,7 +12,7 @@ import HomeIcon from "../assets/Home.astro";
 import ProductosIcon from "../assets/Productos.astro";
 
 const currentPath = Astro.url.pathname;
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, ''); 
 ---
 <!-- Sidebar lateral izquierdo para celulares-->
 <aside id="sidebar" class="fixed top-0 right-0 h-full w-72 z-50 bg-neutral-50 shadow-2xl flex flex-col md:hidden">
