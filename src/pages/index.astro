@@ -1,49 +1,284 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+//Verificacion de cambios 👍
+
+
+// Importaciones de Diseños
+import CategoriasGrid from "../components/DestacadosDesign.astro";
+// Importaciones de componentes
+import Layout from "../layouts/Layout.astro";
+// Importaciones de iconos
+import StarIcon from "../assets/Estrella.astro";
+import WhatsAppIcon from "../assets/WhatsApp.astro";
+import PaintIcon from "../assets/Paint.astro";
+import DiamondIcon from "../assets/Diamond.astro";
+import CarIcon from "../assets/Car.astro";
+import CandadoIcon from "../assets/Candado.astro";
+// Impoertaciones de Imagenes
+import img1 from "../assets/img/bolsa1.png";
+import img2 from "../assets/img/bolsa2.png";
+import img3 from "../assets/img/bolsa3.png";
+import img4 from "../assets/img/bolsa1.png";
+
+
+const currentPath = Astro.url.pathname;
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout title="Inicio">
+<!-- ── HERO ── -->
+  <section class="hero-bg flex items-center relative">
+    <div class="max-w-7xl w-full hero">
+      <div class="max-w-3xl flex flex-col gap-6">
+
+        <div class="hero-mensaje anim-1 inline-flex items-center gap-2 rounded-full mb-7 border border-amber-500/30" style="background:rgba(212,168,67,0.1);">
+          <StarIcon class="w-5 h-5 text-amber-400"/>
+          <p class="text-base font-medium text-stone-100">La mejor coleccion</p>
+  
+        </div>
+
+        <h1 class="font-display leading-tight anim-2">
+          <span class="block text-4xl sm:text-6xl md:text-7xl font-bold text-white">Haz que el exterior</span>
+          <span class="block text-4xl sm:text-6xl md:text-7xl font-bold text-amber-400 italic text-gold-gradient">importe</span>
+          <span class="block text-4xl sm:text-6xl md:text-7xl font-bold text-white">tanto como el interior</span>
+        </h1>
+
+        <p class="text-stone-400 text-base sm:text-lg leading-relaxed max-w-md">
+          Descubre nuestra colección de bolsas de regalo elegantes y únicas.
+          Cada detalle pensado para hacer tu obsequio inolvidable.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="/productos" class="btn-gold font-semibold" class:list={["", { active: currentPath === "/productos" }]}>
+            Ver Productos
+          </a>
+
+          <!-- Agregar un hover para el boton de contacatanos -->
+          <a href="#contacto" id="contacto-btn" class="btn-hero-contact flex rounded-full border font-medium backdrop-blur-2xl transition-all text-stone-100 justify-center gap-2">
+            Contáctanos
+            <WhatsAppIcon class="w-5 h-5 mr-2"/>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-400/60 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── Por que elegirnos ── -->
+
+  <section class="flex items-center relative bg-neutral-200">
+    <div class="flex flex-col gap-14 max-w-7xl w-full section-chooseUs">
+      <div class="text-center">
+        <p class="text-neutral-800 text-base font-bold uppercase tracking-[0.2em] paragraph-chooseUs">¿Por qué elegirnos?</p>
+        <h2 class="text-4xl sm:text-5xl font-bold text-neutral-800">
+          La experiencia que <em class="font-bold text-amber-400">mereces</em>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 cards-grid">
+        <div class="card-dark rounded-2xl">
+
+          <!--Puede ir la filosfia empresarial -->
+          <!-- Cards sobre la empresa -->
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style="background:rgba(212,168,67,0.12);border:1px solid rgba(212,168,67,0.2);">
+            <PaintIcon class="w-5 h-5 text-amber-500"/>
+          </div>
+          <h3 class="font-bold text-neutral-800 text-xl card-title">Diseños Únicos</h3>
+          <p class="text-stone-600 text-base leading-relaxed">Cada bolsa es una obra de arte, diseñada con creatividad y estilo para impresionar.</p>
+        </div>
+
+        <div class="card-dark rounded-2xl">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style="background:rgba(212,168,67,0.12);border:1px solid rgba(212,168,67,0.2);">
+            <DiamondIcon class="w-5 h-5 text-amber-500"/>
+          </div>
+          <h3 class="font-bold text-neutral-800 text-xl card-title">Calidad Premium</h3>
+          <p class="text-stone-600 text-base leading-relaxed">Materiales de primera calidad que garantizan durabilidad y una presentación impecable.</p>
+        </div>
+
+        <div class="card-dark rounded-2xl">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style="background:rgba(212,168,67,0.12);border:1px solid rgba(212,168,67,0.2);">
+            <CarIcon class="w-5 h-5 text-amber-500"/>
+          </div>
+          <h3 class="font-bold text-neutral-800 text-xl card-title">Envío Rápido</h3>
+          <p class="text-stone-600 text-base leading-relaxed">Recibe tus bolsas a domicilio de manera rápida y segura.</p>
+        </div>
+
+        <div class="card-dark rounded-2xl">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5 text-xl" style="background:rgba(212,168,67,0.12);border:1px solid rgba(212,168,67,0.2);">
+            <CandadoIcon class="w-5 h-5 text-amber-500"/>
+          </div>
+          <h3 class="font-bold text-neutral-800 text-xl card-title">Compra Segura</h3>
+          <p class="text-stone-600 text-base leading-relaxed">Protegemos tus datos y garantizamos un proceso de pago confiable y seguro.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section class=" categories flex flex-col justify-center items-center gap-7">
+    <h2 class="categories-title text-4xl sm:text-5xl font-bold text-neutral-800">Productos <span>destacados</span></h2>
+    <article class="max-w-7xl sm:px-10 w-full py-24 sm:py-36" style="padding: 0 20px;">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" style="gap: 24px;">
+
+        <!-- Card 1 -->
+          <!-- Import nombre de imagen {img.src}-->
+        <CategoriasGrid 
+          id = "prod-1"
+          image = {img1.src}
+          type = "Premium"
+          name = "Bolsa Rose Gold Elegance"
+          description = "Bolsa de regalo en tono rose gold con listón satinado. Perfecta para ocasiones especiales."  
+          label = "Chica"
+          price = "40"
+        />
+
+        <!-- Card 2 -->
+        <CategoriasGrid 
+          id = "prod-2"
+          image = {img2.src}
+          type = "Clasica"
+          name = "Bolsa Crema Dorada"
+          description = "Bolsa elegante color crema con detalles dorados. Ideal para bodas y eventos formales."  
+          label = "Mediana"
+          price = "40"
+        />
+
+        <!-- Card 3 -->
+        <CategoriasGrid 
+          id = "prod-3"
+          image = {img3.src}
+          type = "Rústica"
+          name = "Bolsa Kraft Natural"
+          description = "Bolsa de papel kraft con lazo de yute. Estilo rústico y encantador para cualquier regalo."  
+          label = "Grande"
+          price = "30"
+        />
+
+        <!-- Card 4 -->
+        <CategoriasGrid 
+          id = "prod-4"
+          image = {img4.src}
+          type = "Especial"
+          name = "Bolsa Negra Satinada"
+          description = "Bolsa de lujo en negro con acabado satinado y listón plateado. Para los regalos másexclusivos."  
+          label = "Chica"
+          price = "55"
+        />
+
+      </div>
+    </article>
+  </section>
+
+</Layout>
+
+<style>
+  .hero-bg {
+    background-image: 
+      linear-gradient(to right, rgba(20,12,5,0.80) 40%, rgba(20,12,5,0.35) 100%),
+      url('../assets/img/Gemini_Generated_Image_n24m6vn24m6vn24m.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 140px 0;
+  }
+
+  .hero, .section{
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .hero-mensaje{
+    width: fit-content;
+    padding: 5px 12px;
+  }
+
+  .btn-gold {
+    display: flex;
+    align-items: center;
+    padding: 10px 25px;
+    position: relative;
+    font-size: 14px;
+    background-color: #ffffffe8;
+    border-radius: 3rem;
+    border: none;
+    outline: none;
+    box-shadow: 5px 5px 10px #9b6a0080, inset 10px 6px 15px #9b5d0080, inset -5px -5px 8px #9b650040, 0 0 8px #9b6a0020;
+    cursor: pointer;
+    transition: box-shadow .3s ease-in-out, background-color .3s ease-in-out, color .3s ease-in-out;
+  }
+
+  .btn-gold::after{
+    content: '';
+    width: 20px;
+    height: 10px;
+    left: 10px;
+    top: 10px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #fff7;
+    transform: rotate(160deg);
+  }
+
+  .btn-gold:hover {
+    background-color: #fff;
+    box-shadow: 5px 5px 15px #9b6a00c0, inset 10px 6px 20px #9b5d00c0, inset -5px -5px 10px #9b650080, 0 0 12px #9b6a0040;
+  }
+
+  .btn-hero-contact {
+    align-items: center;
+    padding: 10px 25px;
+    border:1px solid #806c5f;
+  }
+
+  /*Section nosotros*/ 
+  .section-chooseUs {
+    padding: 80px 20px;
+    margin: 0 auto;
+
+    .paragraph-chooseUs{
+      padding-bottom: 12px;
+    }
+
+    .card-dark {
+      padding: 28px;
+      background:rgba(255, 252, 244, 0.582);
+      border:1px solid #ffb900;
+    }
+  }
+
+
+  @media (max-width: 520px) {
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; padding: 2rem 1rem; min-height: auto; }
+    .hero-visual { display: none; }
+  }
+</style>
+
+<script is:inline>
+  // México: 521 + 10 dígitos
+  var WA_PHONE = "5212223018506";
+
+  function waUpdateLink() {
+    var btn = document.getElementById("contacto-btn");
+    if (!btn) return;
+    var cart = waGetCart();
+    if (cart.length === 0) {
+      btn.style.opacity = "0.5";
+      btn.style.pointerEvents = "none";
+      btn.setAttribute("href", "#");
+    } else {
+      btn.style.opacity = "";
+      btn.style.pointerEvents = "";
+      btn.setAttribute("href", "https://wa.me/" + WA_PHONE + "?text=");
+    }
+  }
+
+  waUpdateLink();
+</script>

@@ -1,0 +1,44 @@
+---
+//Revision lista👍
+
+
+import CartIcon from "../assets/CarritoCompras.astro";
+// Botón que abre el drawer. El contador se actualiza via JS.
+---
+
+<button id="cart-open" class="cart-btn" aria-label="Abrir carrito">
+
+  <CartIcon class="logo w-9 h-9 flex items-center justify-center text-base text-neutral-800 bg-amber-400"/>
+
+  <!-- Badge con cantidad — oculto cuando está vacío -->
+  <span data-cart-count style="display:none">0</span>
+</button>
+
+<style>
+  .logo {
+    border-radius: 100%;
+  }
+  .cart-btn {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  [data-cart-count] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #e53e3e;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

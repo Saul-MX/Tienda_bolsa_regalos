@@ -1,0 +1,69 @@
+---
+//Verificacion de cambios 👍
+
+
+//Importaciones de Componentes
+import Layout from "../layouts/Layout.astro";
+import DestacadosDesign from "../components/DestacadosDesign.astro";
+//Importaciones de imagenes
+import img1 from "../assets/img/bolsa1.png";
+import img2 from "../assets/img/bolsa2.png";
+import img3 from "../assets/img/bolsa3.png";
+
+//Datos de producto tipo .JSON
+const products = [
+  { id: "prod-1", name: "Bolsa Rose Gold Elegance", price: 40, image: img1.src, description: "Bolsa de regalo en tono rose gold con listón satinado. Perfecta para ocasiones especiales.", label:"chica", type:"Premium" },
+  { id: "prod-2", name: "Bolsa Crema Dorada", price: 40, image: img2.src, description: "Bolsa elegante color crema con detalles dorados. Ideal para bodas y eventos formales.", label:"mediana", type:"Clasica" },
+  { id: "prod-3", name: "Bolsa Kraft Natural", price: 30, image: img3.src, description: "Bolsa de papel kraft con lazo de yute. Estilo rústico y encantador para cualquier regalo.", label:"Grande", type:"Rústica" },
+  { id: "prod-4", name: "Bolsa Negra Satinada", price: 55, image: img1.src, description: "Bolsa de lujo en negro con acabado satinado y listón plateado. Para los regalos másexclusivos.", label:"Chica", type:"Especial" },
+];
+---
+
+<Layout title="Productos">
+  <div class="page-wrap">
+    <!-- Encabezado de página -->
+    <div class="page-header">
+      <div>
+        <h1 class="text-4xl sm:text-5xl font-bold text-neutral-800" style="margin: 80px 0 20px;">Todos los productos</h1>
+        <p class="text-stone-600 text-base leading-relaxed font-semibold">
+          <span class="text-amber-500 font-semibold">
+            {products.length}
+          </span> 
+          productos disponibles
+        </p>
+      </div>
+    </div>
+
+    <!-- Grid de productos -->
+    <div class="products-grid">
+      {products.map((p) => <DestacadosDesign {...p} />)}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  .page-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 640px) {
+    .page-wrap { padding: 1.5rem 1rem 3rem; }
+  }
+</style>

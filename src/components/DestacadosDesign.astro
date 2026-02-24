@@ -1,0 +1,55 @@
+---
+const {id, image, name, description,label, price, type} = Astro.props
+---
+
+<!-- Design Card -->
+<div id={id} class="bg-white rounded-2xl shadow-sm flex flex-col overflow-hidden">
+    <div class="flex items-center justify-center" style="height: 220px; padding: 20px; ">
+        <div class="bg-white/60 rounded-lg shadow-2xs h-full w-full">
+            <img src={image} alt=""  class="w-full h-full object-contain rounded-lg" style="background: #f3f3f4;"/>
+        </div>
+    </div>
+    <div class="flex flex-col flex-1" style="padding: 20px;">
+        <span class="text-xs font-bold text-orange-400 uppercase tracking-widest" style="margin-bottom: 4px;">{type}</span>
+        <h2 class="font-bold text-neutral-800 text-xl" style="margin-bottom: 8px;">
+            {name}
+        </h2>
+        <p class="text-stone-600 text-base leading-relaxed" style="margin-bottom: 16px;">
+            {description}
+        </p>
+        <div class="flex flex-wrap" style="margin-bottom: 20px;">
+            <span class="text-sm border border-gray-200 text-gray-500 rounded-full font-semibold" style="padding: 4px 12px;">{label}</span>
+        </div>
+        <div class="flex items-center justify-between mt-auto">
+            <span class="text-2xl font-bold text-gray-900">${price}</span>
+            <button
+                data-add-to-cart
+                data-id={id}
+                data-name={name}
+                data-price={price}
+                data-image={image}
+                data-type={type}
+                data-label="Agregar"
+                class="add-btn bg-amber-400 hover:bg-amber-500 text-white text-sm font-semibold rounded-full transition-colors duration-200 cursor-pointer"
+                style="padding: 8px 20px;"
+            >
+                Agregar
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+  document.querySelectorAll('[data-add-to-cart]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const button = btn as HTMLButtonElement
+      const product = {
+        id: button.dataset.id,
+        name: button.dataset.name,
+        price: Number(button.dataset.price),
+        image: button.dataset.image,
+      }
+      console.log('Agregar al carrito:', product)
+    })
+  })
+</script>

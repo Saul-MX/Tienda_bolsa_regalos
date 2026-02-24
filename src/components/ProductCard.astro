@@ -1,0 +1,130 @@
+---
+// src/components/ProductCard.astro
+export interface Props {
+  id: string;
+  name: string;
+  price: number;
+  image?: string;
+  description?: string;
+}
+
+const { id, name, price, image, description } = Astro.props;
+
+
+           
+---
+
+<article class="product-card">
+  <div class="product-img-wrap">
+    {image && <img src={image} alt={name} class="product-img" />}
+  </div>
+
+  <div class="product-body">
+    <h3 class="product-name">{name}</h3>
+    {description && <p class="product-desc">{description}</p>}
+    <div class="product-footer">
+      <span class="product-price">${price.toFixed(2)}</span>
+      <button
+        data-add-to-cart
+        data-id={id}
+        data-name={name}
+        data-price={price}
+        data-image={image || ""}
+        data-label="Agregar"
+        class="add-btn"
+      >
+        Agregar
+      </button>
+    </div>
+  </div>
+</article>
+
+<style>
+  .product-card {
+    background: #fff;
+    border: 1px solid #e8e4dc;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .product-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+    transform: translateY(-3px);
+  }
+
+  .product-img-wrap {
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: #f0ede8;
+  }
+
+  .product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .product-card:hover .product-img { transform: scale(1.04); }
+
+  .product-body {
+    padding: 1rem 1.1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+  }
+
+  .product-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  .product-desc {
+    font-size: 0.82rem;
+    color: #8a8279;
+    margin: 0;
+    line-height: 1.45;
+    flex: 1;
+  }
+
+  .product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+
+  .product-price {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+
+  .add-btn {
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+  }
+
+  .add-btn:hover { background: #c8502a; }
+
+  .add-btn:disabled {
+    background: #4a9d5a;
+    cursor: default;
+  }
+</style>
