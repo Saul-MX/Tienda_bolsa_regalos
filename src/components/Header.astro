@@ -57,7 +57,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <!-- Hamburguesa -->
         <div class="flex items-center gap-3">
         
-            <a href="/" class="flex items-center gap-2 text-neutral-800 font-bold text-xl cursor-pointer" class:list={["", { active: currentPath === "/" }]}>
+            <a href={`${base}`} class="flex items-center gap-2 text-neutral-800 font-bold text-xl cursor-pointer" class:list={["", { active: currentPath === `${base}` }]}>
                 <div class="w-8 h-8 bg-amber-400 rounded-lg flex items-center justify-center text-white text-base">
                 <!--Icon de bolsa de regalos -->
                 <BolsaRegaloIcon />
