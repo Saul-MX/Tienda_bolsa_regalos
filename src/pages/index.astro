@@ -21,6 +21,7 @@ import img4 from "../assets/img/bolsa1.png";
 
 
 const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL.replace(/\/$/, ''); 
 ---
 
 <Layout title="Inicio">
@@ -47,7 +48,7 @@ const currentPath = Astro.url.pathname;
         </p>
 
         <div class="flex flex-wrap gap-4">
-          <a href="/productos" class="btn-gold font-semibold" class:list={["", { active: currentPath === "/productos" }]}>
+          <a href={`${base}/productos`} class="btn-gold font-semibold" class:list={["", { active: currentPath === `${base}/productos` }]}>
             Ver Productos
           </a>
 
